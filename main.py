@@ -1,4 +1,4 @@
-import sys, LinearRegression
+import sys, LinearModels
 
 sys.setrecursionlimit(10000000)
 
@@ -8,4 +8,4 @@ sys.setrecursionlimit(10000000)
 """
 
 if __name__ == '__main__':
-    LinearRegression.linear_regression(None)
+    LinearModels.linear_regression(None)
