@@ -27,6 +27,31 @@ def classification_MSE(y, y_pred):
     return s / n
 
 
+def regression_RSS(y, y_pred):
+    if len(y) != len(y_pred):
+        return Exception("y and y_pred must be in same length")
+    n = len(y)
+    return n * regression_MSE(y, y_pred)
+
+
+def regression_RSE(y, y_pred):
+    if len(y) != len(y_pred):
+        return Exception("y and y_pred must be in same length")
+    n = len(y)
+    return pow(regression_RSS(y, y_pred), 0.5)
+
+
+def correlation(x, y):
+    if len(x) != len(y):
+        return Exception("X and Y must be in same length")
+    n = len(x)
+    mean_x = sum(x) / n
+    mean_y = sum(y) / n
+    numerator = sum((x - mean_x) * (mean_y))
+    denominator = pow(sum((x - mean_x) ** 2), 0.5) * pow(sum((y - mean_y) ** 2), 0.5)
+    return numerator / denominator
+
+
 def linear_regression(data):
     pass
 
