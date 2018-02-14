@@ -73,5 +73,11 @@ def lasso(x, y):
     return model, model.coef_, model.intercept_
 
 
-def linear_classification(data):
+def logistic_regression(x, y):
+    model = linear_model.LogisticRegression()
+    model.fit(x, y)
+    return model, model.coef_, model.intercept_
+
+
+def linear_classification(x, y):
     pass

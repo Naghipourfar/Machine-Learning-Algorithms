@@ -10,12 +10,12 @@ sys.setrecursionlimit(10000000)
 """
 
 
-def scatter(x, y, linewidths=3, color='black'):
-    plt.scatter(x, y, linewidths=linewidths, color=color)
+def scatter(x, y, linewidths=3, color='black', label=None):
+    plt.scatter(x, y, linewidths=linewidths, color=color, label=label)
 
 
-def plot(x, y, linewidths=3, color='blue'):
-    plt.plot(x, y, linewidth=linewidths, color=color)
+def plot(x, y, linewidths=3, color='blue', label=None):
+    plt.plot(x, y, linewidth=linewidths, color=color, label=label)
 
 
 def axis_ticks():
@@ -25,6 +25,7 @@ def axis_ticks():
 
 def show():
     axis_ticks()
+    plt.legend()
     plt.show()
 
 
