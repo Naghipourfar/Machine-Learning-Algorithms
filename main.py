@@ -10,7 +10,6 @@ from sklearn import datasets
 """
 
 if __name__ == '__main__':
-    iris = datasets.load_iris()
     diabetes = datasets.load_diabetes()
     diabetes_X = diabetes.data[:, None, 2]  # ???
     diabetes_Y = diabetes.target
@@ -26,3 +25,4 @@ if __name__ == '__main__':
     Graphics.scatter(diabetes_X, diabetes_Y)
     Graphics.plot(diabetes_X_test, diabetes_Y_pred)
     Graphics.show()
+

@@ -67,5 +67,11 @@ def ridge_regression(x, y):
     return model, model.coef_, model.intercept_
 
 
+def lasso(x, y):
+    model = linear_model.Lasso(alpha=0.1)
+    model.fit(x, y)
+    return model, model.coef_, model.intercept_
+
+
 def linear_classification(data):
     pass
