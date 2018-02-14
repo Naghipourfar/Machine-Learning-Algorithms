@@ -1,9 +1,8 @@
-import sys, LinearModels
+import sys, LinearModels, Graphics
 import numpy as np
 from sklearn import datasets
 
-import matplotlib.pyplot as plt
-from sklearn.metrics import mean_squared_error, r2_score
+# from sklearn.metrics import mean_squared_error, r2_score
 
 """
     Created by Mohsen Naghipourfar on 2/8/18.
@@ -24,8 +23,6 @@ if __name__ == '__main__':
     print('Coefficients: \n', coefs)
     # print("Mean squared error: {0}".format(mean_squared_error(diabets.data, diabets.target)))
     diabetes_Y_pred = model.predict(diabetes_X_test)
-    plt.scatter(diabetes_X, diabetes_Y, color="black", linewidths=3)
-    plt.plot(diabetes_X_test, diabetes_Y_pred, color='blue', linewidth=3)
-    plt.xticks()
-    plt.yticks()
-    plt.show()
+    Graphics.scatter(diabetes_X, diabetes_Y)
+    Graphics.plot(diabetes_X_test, diabetes_Y_pred)
+    Graphics.show()
