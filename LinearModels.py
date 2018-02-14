@@ -61,5 +61,11 @@ def linear_regression(x, y):
     return model, model.coef_, model.intercept_
 
 
+def ridge_regression(x, y):
+    model = linear_model.Ridge(alpha=0.5)
+    model.fit(x, y)
+    return model, model.coef_, model.intercept_
+
+
 def linear_classification(data):
     pass
