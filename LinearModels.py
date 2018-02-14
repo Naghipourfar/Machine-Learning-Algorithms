@@ -1,4 +1,7 @@
 import sys
+import pandas as pd
+import numpy as np
+from sklearn import linear_model
 
 sys.setrecursionlimit(10000000)
 
@@ -52,8 +55,10 @@ def correlation(x, y):
     return numerator / denominator
 
 
-def linear_regression(data):
-    pass
+def linear_regression(x, y):
+    model = linear_model.LinearRegression()
+    model.fit(x, y)
+    return model, model.coef_, model.intercept_
 
 
 def linear_classification(data):

@@ -1,6 +1,9 @@
 import sys, LinearModels
+import numpy as np
+from sklearn import datasets
 
-sys.setrecursionlimit(10000000)
+import matplotlib.pyplot as plt
+from sklearn.metrics import mean_squared_error, r2_score
 
 """
     Created by Mohsen Naghipourfar on 2/8/18.
@@ -8,4 +11,21 @@ sys.setrecursionlimit(10000000)
 """
 
 if __name__ == '__main__':
-    LinearModels.linear_regression(None)
+    iris = datasets.load_iris()
+    diabetes = datasets.load_diabetes()
+    diabetes_X = diabetes.data[:, None, 2]  # ???
+    diabetes_Y = diabetes.target
+    diabetes_X_test = diabetes_X[-20:]
+    print(diabetes.keys())
+    print(diabetes.feature_names)
+    print(diabetes.data[0])
+    print(diabetes.target)
+    model, coefs, intercept = LinearModels.linear_regression(diabetes_X, diabetes_Y)
+    print('Coefficients: \n', coefs)
+    # print("Mean squared error: {0}".format(mean_squared_error(diabets.data, diabets.target)))
+    diabetes_Y_pred = model.predict(diabetes_X_test)
+    plt.scatter(diabetes_X, diabetes_Y, color="black", linewidths=3)
+    plt.plot(diabetes_X_test, diabetes_Y_pred, color='blue', linewidth=3)
+    plt.xticks()
+    plt.yticks()
+    plt.show()
