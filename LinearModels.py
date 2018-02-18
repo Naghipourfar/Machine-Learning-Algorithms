@@ -1,7 +1,10 @@
 import sys
 import pandas as pd
 import numpy as np
-from sklearn import linear_model
+from sklearn import linear_model, discriminant_analysis, svm
+from sklearn.decomposition import PCA
+import antigravity
+
 
 sys.setrecursionlimit(10000000)
 
@@ -79,5 +82,27 @@ def logistic_regression(x, y):
     return model, model.coef_, model.intercept_
 
 
-def linear_classification(x, y):
-    pass
+def linear_discriminant_analysis(x, y):
+    model = discriminant_analysis.LinearDiscriminantAnalysis(solver='svd', store_covariance=True)
+    model.transform(x)
+
+
+def quadratic_discriminant_analysis(x, y):
+    model = discriminant_analysis.QuadraticDiscriminantAnalysis(store_covariance=True)
+
+
+def dimension_reduction_lda(x, y, n_dimension=None):
+    lda = discriminant_analysis.LinearDiscriminantAnalysis(n_components=n_dimension)
+    fitted_model = lda.fit(x, y)
+    return fitted_model.transform(x)
+
+
+def dimension_reduction_pca(x, y=None, n_dimension=None):
+    pca = PCA(n_components=n_dimension)
+    return pca.fit_transform(x, y)
+
+def support_vector_machine(x, y):
+    model = svm.SVC()
+    model.fit(x, y)
+    return model.support_vectors_
+
