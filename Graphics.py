@@ -14,8 +14,11 @@ def scatter(x, y, linewidths=3, color='black', label=None):
     plt.scatter(x, y, linewidths=linewidths, color=color, label=label)
 
 
-def plot(x, y, linewidths=3, color='blue', label=None):
-    plt.plot(x, y, linewidth=linewidths, color=color, label=label)
+def plot(x, y=None, linewidths=3, color='blue', label=None, *args):
+    if y is None:
+        plt.plot(x, linewidths=linewidths, color=color, label=label, *args)
+    else:
+        plt.plot(x, y, linewidth=linewidths, color=color, label=label, *args)
 
 
 def axis_ticks():
